@@ -5,7 +5,7 @@ public class OTPgen {
 	
 		int randnum,temp1;
 		double i,temp2;
-		String str="abcdefghijklmnopqrstuvwxyz1234567890";
+		String str="abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=|?><:;";
 		OTPgen()
 		{
 			try
@@ -23,33 +23,20 @@ public class OTPgen {
 				{
 					System.out.println("Please Enter any number less than 500 (Whuich is a multiple of 8)");
 					temp1=scan.nextInt();
-					
-					//i=str.length();						
-					//char[] text=new char[temp1];
-					//temp1= (int) Math.pow(10,i)-1;						
-					//randnum= rand.nextInt(temp1);
-					
+												
 					for(int var=0;var<temp1;var++)
-					{
-						//strbuild.append(str.charAt(rand.nextInt(str.length())));
 						strbuild.append(Integer.toHexString(str.charAt(rand.nextInt(str.length()))));
-					}
-					
-					
-					//System.out.println(strbuild.toString());
-					
+													
 					fw.write(strbuild.toString());
 					fw.write("\n");		
 					fw.flush();
-					
+				
 					fw.close();
-					
-					
+										
 				}
 			}
 			catch(IOException e)
-			{
-			
+			{			
 			}
 		
 		}	
