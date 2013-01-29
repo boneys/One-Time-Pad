@@ -49,15 +49,9 @@ public class OTPenc {
 
                 }
 
-
-
-
                 StringBuilder sb =new StringBuilder();
                 StringBuilder sb2 =new StringBuilder();
-                StringBuilder sb3 =new StringBuilder();
-                StringBuilder sb4 =new StringBuilder();
-
-
+                
                 for(int i=0;i<str_buf.length()-1;i+=2)
                 {
                     output=str_buf.substring(i, i+2);
@@ -71,18 +65,9 @@ public class OTPenc {
                 byte[] message=str_mes.getBytes();		
                 byte[] key2=tt.getBytes();
 
-               // System.out.println("key-----"+sb.toString());
-               // System.out.println(tt.length());
-
-
-
                 for(int i=0;i<message.length;i++)			
                     sb2.append(Integer.toHexString((char) (message[i]^key2[i])));
-
-
-                //--------------------------------------------------------------------
-
-
+               
                 String str3=sb2.toString();
                 System.out.println("HEx format --$"+str3);
 
@@ -90,45 +75,6 @@ public class OTPenc {
                 keyfilewrtr.write(str3);
                 keyfilewrtr.write("\n");
                 keyfilewrtr.flush();
-
-//                System.in.read();
-
-                for(int i=0;i<str3.length()-1;i+=2)
-                {
-                    output=str3.substring(i, i+2);
-                    decimal=Integer.parseInt(output,16);
-                    sb3.append((char)decimal);
-                    System.out.print("- "+sb3.toString());
-                }
-
-                System.out.println("hex to xor--$"+sb3.toString());
-
-                str3=sb3.toString();
-
-                System.out.println("hex to xor--sb3---$"+sb3);
-                System.out.println("END");
-                System.in.read();
-
-
-
-
-                System.out.println("Encrypt--------    $"+str3);
-                System.out.println("END");
-
-
-                byte[] xor=str3.getBytes();
-
-
-
-                for(int i=0;i<message.length;i++)
-                {
-                    sb4.append((char) ( xor[i] ^ key2[i] ));
-                }
-
-                System.out.println("Decrypt--------   "+sb4.toString());
-
-
-
 
                 buf.close();
                 msgfilerdr.close();
