@@ -19,10 +19,7 @@ public class OTPdec {
 		StringBuilder sb=new StringBuilder();
 		StringBuilder sb1=new StringBuilder();
 		StringBuilder sb2=new StringBuilder();
-		
-		
-		
-		
+				
 		int decimal;
 		String output,hex1,hex2;
 		String str1=buf_mes.readLine();
@@ -56,15 +53,12 @@ public class OTPdec {
 		byte[] cipher=hex1.getBytes();
 		byte[] key=hex2.getBytes();
 		
-		System.out.println("---------------------------------------------------------------------");
 		for(int i=0;i<cipher.length;i++)
 			sb.append((char) (cipher[i] ^ key[i]));
 		
-		thread.sleep(188);
-        System.out.println("Message Is ---  :"+sb.toString());
+		System.out.println("Message Is ---  :"+sb.toString());
 		decrypt_fw.write(sb.toString());
 		
-		thread.sleep(188);
 		cipher_fr.close();
 		key_fr.close();
 		buf_mes.close();
